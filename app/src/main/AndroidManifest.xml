@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.reymond.trac_insta">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+
+    <application
+        android:name=".admin.global_vars"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:versionCode="7"
+        android:versionName="7.0"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".installation.InstallPhotoActivity"></activity>
+        <activity android:name=".service.ServiceimageActivity"
+          />
+        <activity
+            android:name=".SettingActivity"
+            android:noHistory="true" />
+
+
+        <activity
+            android:name=".admin.Admin_authentication"
+            android:noHistory="true" />
+        <activity
+            android:name=".requirement.Tab3Activity"
+            />
+        <activity
+            android:name=".authentication.phone_login_activity"
+            android:noHistory="true" />
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".installation.TabActivity"
+
+            />
+        <activity
+            android:name=".service.Tab2Activity"
+             />
+        <activity android:name=".HomeActivity"
+           />
+        <activity
+            android:name=".planner.PlannerActivity"
+             />
+        <activity android:name=".LogoutActivity" />
+        <activity
+            android:name=".support.SupportActivity"
+            />
+        <activity
+            android:name=".database.add_installations"
+            android:noHistory="true" />
+        <activity
+            android:name=".authentication.VerifyPhoneActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".pdf_activity"
+            android:noHistory="true" />
+    </application>
+
+</manifest>

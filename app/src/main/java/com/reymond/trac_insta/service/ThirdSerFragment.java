@@ -1,0 +1,336 @@
+package com.reymond.trac_insta.service;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.reymond.trac_insta.R;
+import com.reymond.trac_insta.admin.global_vars;
+import com.reymond.trac_insta.database.installation;
+import com.reymond.trac_insta.database.service;
+import com.reymond.trac_insta.installation.ListViewAdapter;
+import com.reymond.trac_insta.installation.installationListView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
+
+
+public class ThirdSerFragment extends Fragment {
+    private String id,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14;
+    private ListView installationListService;
+    private TextView service_date,landt,vehicle_no,asset_code,device_name,device_imei_no, sim_name, sim_imei_no, sim_no, location, service_time, service_engineer_name, site_incharge_name, authorised_person;
+    ListViewAdapter adapter;
+
+    private ArrayList<service> arrayList = new ArrayList<>();
+
+
+
+
+
+
+    public ThirdSerFragment() {
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        DatabaseReference installation_db;
+        installation_db = FirebaseDatabase.getInstance().getReference("services");
+
+        View view = inflater.inflate(R.layout.fragment_third_ser, container, false);
+        installationListService = (ListView) view.findViewById(R.id.listViewSer);
+        final ProgressDialog progressBar = new ProgressDialog(getActivity());
+        progressBar.setCancelable(true);//you can cancel it by pressing back button
+        progressBar.setMessage("Loading");
+        if(!isNetworkConnected()){
+            Toast.makeText(getActivity(), "Not connected, please connect to internet!", Toast.LENGTH_SHORT).show();
+            progressBar.dismiss();
+        }
+        progressBar.show();
+
+        installationListService.setDivider(null);
+
+
+        installation_db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clearing the previous artist list
+                arrayList.clear();
+                //iterating through all the nodes
+                for (DataSnapshot postSnapshot : Objects.requireNonNull(dataSnapshot).getChildren()) {
+                    //getting artist
+                    service install = postSnapshot.getValue(service.class);
+                    arrayList.add(install);
+                }
+
+                if (getActivity()!=null) {
+                    Collections.reverse(arrayList);
+                    installationListViewService Adapter = new installationListViewService(getActivity(), arrayList);
+                    //attaching adapter to the listview
+                    installationListService.setAdapter(Adapter);
+                    Adapter.notifyDataSetChanged();
+                }
+                //creating adapter
+
+                progressBar.dismiss();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getActivity(), "db error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        installationListService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //getting the selected artist
+
+                service artist = arrayList.get(i);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+                LayoutInflater inflater = getLayoutInflater();
+                @SuppressLint("InflateParams") View view1 = inflater.inflate(R.layout.customservice, null);
+                service_date = view1.findViewById(R.id.text);
+                landt = view1.findViewById(R.id.text13);
+                vehicle_no = view1.findViewById(R.id.text1);
+                asset_code=view1.findViewById(R.id.text12);
+                device_name = view1.findViewById(R.id.text2);
+                device_imei_no = view1.findViewById(R.id.text3);
+                sim_name = view1.findViewById(R.id.text4);
+                sim_imei_no = view1.findViewById(R.id.text5);
+                sim_no = view1.findViewById(R.id.text6);
+                location = view1.findViewById(R.id.text7);
+                service_time = view1.findViewById(R.id.text8);
+                service_engineer_name = view1.findViewById(R.id.text9);
+                site_incharge_name = view1.findViewById(R.id.text10);
+                authorised_person = view1.findViewById(R.id.text11);
+
+
+                service_date.setText(artist.getService_date());
+                Toast.makeText(getActivity(), ""+artist.getService_date(), Toast.LENGTH_SHORT).show();
+                landt.setText(artist.getLandt());
+                vehicle_no.setText(artist.getVehicle_no());
+                asset_code.setText(artist.getAsset_code());
+                device_name.setText(artist.getDevice_name());
+                device_imei_no.setText(artist.getDevice_imei_no());
+                sim_name.setText(artist.getSim_name());
+                sim_imei_no.setText(artist.getSim_imei_no());
+                sim_no.setText(artist.getSim_no());
+                location.setText(artist.getLocation());
+                service_time.setText(artist.getService_time());
+                service_engineer_name.setText(artist.getService_engineer_name());
+                site_incharge_name.setText(artist.getSite_incharge_name());
+                authorised_person.setText(artist.getAuthorised_person());
+                alertDialog.setView(view1);
+                alertDialog.setPositiveButton("OK", null);
+                alertDialog.setView(view1);
+                // create and show the alert dialog
+                AlertDialog dialog = alertDialog.create();
+                // Initialize a new window manager layout parameters
+                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+
+
+                // Copy the alert dialog window attributes to new layout parameter instance
+                layoutParams.copyFrom(Objects.requireNonNull(dialog.getWindow()).getAttributes());
+
+                // Set the width and height for the layout parameters
+                // This will bet the width and height of alert dialog
+                layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+                layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+                // Apply the newly created layout parameters to the alert dialog window
+                dialog.getWindow().setAttributes(layoutParams);
+
+                alertDialog.show();
+
+
+            }
+        });
+
+        installationListService.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                // REMOVE  COMMENTS HERE
+                String s="";
+                s = ((global_vars) Objects.requireNonNull(getActivity()).getApplication()).getSomeVariable();
+                SharedPreferences sp = Objects.requireNonNull(getActivity()).getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+                s= sp.getString("key", null);
+
+                if(s == null)
+                {
+                    Toast.makeText(getActivity(), "You are not admin to edit the details please go to Settings -> admin -> verify", Toast.LENGTH_SHORT).show();
+                }
+                else if (s.equals("admin")){
+                    EditText installationId,service_date,landt,vehicle_no,asset_code,device_name,device_imei_no, sim_name, sim_imei_no, sim_no, location, service_time, service_engineer_name, site_incharge_name, authorised_person;
+                    service artist = arrayList.get(i);
+                    id = artist.getInstallationId();
+                    showUpdateDeleteDialog(artist,artist.getInstallationId(), artist.getService_date());
+                }
+                return true;
+            }
+        });
+        return view;
+    }
+
+    private void showUpdateDeleteDialog(service artist, final String artistId, String artistName) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+        LayoutInflater inflater = getLayoutInflater();
+        @SuppressLint("InflateParams") final View dialogView = inflater.inflate(R.layout.update_dialog_service, null);
+        service_date = dialogView.findViewById(R.id.text);
+        landt = dialogView.findViewById(R.id.text13);
+        vehicle_no = dialogView.findViewById(R.id.text1);
+        asset_code=dialogView.findViewById(R.id.text12);
+        device_name = dialogView.findViewById(R.id.text2);
+        device_imei_no = dialogView.findViewById(R.id.text3);
+        sim_name = dialogView.findViewById(R.id.text4);
+        sim_imei_no =dialogView.findViewById(R.id.text5);
+        sim_no = dialogView.findViewById(R.id.text6);
+        location = dialogView.findViewById(R.id.text7);
+        service_time = dialogView.findViewById(R.id.text8);
+        service_engineer_name = dialogView.findViewById(R.id.text9);
+        site_incharge_name = dialogView.findViewById(R.id.text10);
+        authorised_person = dialogView.findViewById(R.id.text11);
+
+        service_date.setText(artist.getService_date());
+        landt.setText(artist.getLandt());
+        vehicle_no.setText(artist.getVehicle_no());
+        asset_code.setText(artist.getAsset_code());
+        device_name.setText(artist.getDevice_name());
+        device_imei_no.setText(artist.getDevice_imei_no());
+        sim_name.setText(artist.getSim_name());
+        sim_imei_no.setText(artist.getSim_imei_no());
+        sim_no.setText(artist.getSim_no());
+        location.setText(artist.getLocation());
+        service_time.setText(artist.getService_time());
+        service_engineer_name.setText(artist.getService_engineer_name());
+        site_incharge_name.setText(artist.getSite_incharge_name());
+        authorised_person.setText(artist.getAuthorised_person());
+
+        dialogBuilder.setView(dialogView);
+        final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateArtist);
+        final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteArtist);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                s1 = ""+ service_date.getText();
+                s2 = ""+ landt.getText();
+                s3 = ""+ vehicle_no.getText();
+                s4 = ""+ asset_code.getText();
+                s5 = ""+ device_name.getText();
+                s6 = ""+ device_imei_no.getText();
+                s7 = ""+ sim_name.getText();
+                s8 = ""+ sim_imei_no.getText();
+                s9 = ""+ sim_no.getText();
+                s10 =""+ location.getText();
+                s11 = ""+service_time.getText();
+                s12 = ""+service_engineer_name.getText();
+                s13 = ""+site_incharge_name.getText();
+                s14 = ""+authorised_person.getText();
+
+                updateArtist(id,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14);
+                Toast.makeText(getActivity(), "updated", Toast.LENGTH_SHORT).show();
+                b.dismiss();
+
+            }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+                builder.setMessage("Are you sure you want to delete?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                deleteArtist(artistId);
+                                b.dismiss();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+                b.dismiss();
+            }
+        });
+    }
+
+    private void updateArtist(String id, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9, String s10, String s11, String s12, String s13, String s14) {
+        //getting the specified artist reference
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("services").child(id);
+        //updating artist
+        service artist = new service(id,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14);
+        dR.setValue(artist);
+        if(getActivity()!=null) {
+            installationListViewService Adapter = new installationListViewService(getActivity(), arrayList);
+            installationListService.setAdapter(Adapter);
+        }else{
+            Toast.makeText(getActivity(), "Error SF: could not process your request", Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
+    }
+
+
+    private void deleteArtist(String id) {
+        //getting the specified artist reference
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("services").child(id);
+        //removing artist
+        dR.removeValue();
+        Toast.makeText(getActivity(), "vehicle Deleted", Toast.LENGTH_LONG).show();
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(getActivity()).getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert cm != null;
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+}
+
+
+
+
+
+
+
+

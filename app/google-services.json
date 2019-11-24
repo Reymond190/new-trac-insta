@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313991036611",
+    "firebase_url": "https://trac-insta-37a3f.firebaseio.com",
+    "project_id": "trac-insta-37a3f",
+    "storage_bucket": "trac-insta-37a3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313991036611:android:b1ddc1e42d959d5fa96c76",
+        "android_client_info": {
+          "package_name": "com.reymond.trac_insta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313991036611-d6tifkvss5c0n09rs7jnvpjm623qhitq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reymond.trac_insta",
+            "certificate_hash": "cf62be5056a368ff9bc6f710a2b45bfa71035580"
+          }
+        },
+        {
+          "client_id": "313991036611-fndaam24kgol915el359u9l3m0g0ph6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATlTmfYuOtlkfKCaM11uNhXj9YXYZTGfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313991036611-fndaam24kgol915el359u9l3m0g0ph6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

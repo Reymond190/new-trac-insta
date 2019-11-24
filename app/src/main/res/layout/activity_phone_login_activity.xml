@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.phone_login_activity"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+
+        android:layout_marginTop="150dp"
+        android:text="@string/may_i_ask_you_phone_number"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:orientation="vertical"
+         >
+
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_margin="40dp"
+            android:background="@drawable/editt"
+            android:digits="0123456789"
+            android:gravity="center"
+            android:hint="@string/enter_your_number"
+            android:maxLength="10"
+            android:textColor="@color/black"
+            android:textColorHint="#B1B1B1"
+
+            />
+
+        <Spinner
+            android:id="@+id/spinnerCountries"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:maxLength="10"
+            android:textColor="@color/white"
+            android:textColorHint="@color/flu"
+            android:background="@color/white"
+            android:layout_marginLeft="40dp"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="50dp">
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/buttonCancle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
+        android:background="@drawable/canceledit"
+        android:text="Cancel"
+        android:onClick="cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_margin="1dp"
+        />
+
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/buttonContinue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
+        android:background="@drawable/applyedit"
+        android:text="Apply"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+
+        />
+    </LinearLayout>
+
+</LinearLayout>

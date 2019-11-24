@@ -1,0 +1,21 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+    <Button
+        android:id="@+id/PhotoButton"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/edit"
+        android:text="Send  photos through  mail"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000" />
+
+</LinearLayout>
