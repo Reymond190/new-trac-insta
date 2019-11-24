@@ -59,9 +59,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="20dp"
-                    android:text=""
+                    android:text="TN66AL9087"
                     android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:textSize="12sp" />
 
             </com.google.android.material.card.MaterialCardView>
 
