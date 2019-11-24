@@ -67,7 +67,7 @@ public class Tab3Activity extends AppCompatActivity {
         // set an icon for the second tab
         tabLayout.addTab(thirdTab);
 
-
+        //hello me
 
         PagAdapter adapter = new PagAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
