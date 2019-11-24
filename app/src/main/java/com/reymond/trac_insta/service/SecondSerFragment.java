@@ -48,9 +48,9 @@ public class SecondSerFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"abhiraj@tracalogic.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
-                i.putExtra(Intent.EXTRA_TEXT   , "Enter your Vehicle Number : ");
+                i.putExtra(Intent.EXTRA_TEXT   , "Vehicle Number : ");
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
