@@ -91,6 +91,8 @@
         <activity
             android:name=".authentication.VerifyPhoneActivity"
             android:noHistory="true" />
+        <activity android:name=".planner.NotePreviewActivity"></activity>
+        <activity android:name=".planner.AddNoteActivity" />
         <activity
             android:name=".pdf_activity"
             android:noHistory="true" />

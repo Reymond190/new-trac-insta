@@ -81,16 +81,33 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="30dp"/>
 
-                    <Button
-                        android:id="@+id/btnChoose"
-                        android:layout_width="100dp"
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="45dp"
-                        android:background="@drawable/edit"
-                        android:text="@string/vehicle_image_1"
-                        android:textColor="#000" />
+                        android:orientation="vertical">
+                        <Button
+                            android:id="@+id/btnChoose"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="45dp"
+                            android:background="@drawable/edit"
+                            android:text="@string/vehicle_image_1"
+                            android:textColor="#000" />
+
+                        <Button
+                            android:id="@+id/send1"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="45dp"
+                            android:visibility="visible"
+                            android:background="@drawable/edit"
+                            android:text="Send"
+                            android:textColor="#000" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -111,16 +128,33 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="30dp"/>
 
-                    <Button
-                        android:id="@+id/btnChoose1"
-                        android:layout_width="100dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="45dp"
-                        android:background="@drawable/edit"
-                        android:text="Vehicle image 2"
-                        android:textColor="#000" />
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnChoose1"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="45dp"
+                            android:background="@drawable/edit"
+                            android:text="Vehicle image 2"
+                            android:textColor="#000" />
+
+                        <Button
+                            android:id="@+id/send2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="45dp"
+                            android:visibility="visible"
+                            android:background="@drawable/edit"
+                            android:text="Send"
+                            android:textColor="#000" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -140,16 +174,34 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="30dp"/>
 
-                    <Button
-                        android:id="@+id/btnChoose2"
-                        android:layout_width="100dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="45dp"
-                        android:background="@drawable/edit"
-                        android:text="Vehicle image 3"
-                        android:textColor="#000" />
+                        android:orientation="vertical">
+
+
+                        <Button
+                            android:id="@+id/btnChoose2"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="45dp"
+                            android:background="@drawable/edit"
+                            android:text="Vehicle image 3"
+                            android:textColor="#000" />
+
+                        <Button
+                            android:id="@+id/send3"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="45dp"
+                            android:visibility="visible"
+                            android:background="@drawable/edit"
+                            android:text="Send"
+                            android:textColor="#000" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -168,16 +220,33 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="30dp"/>
 
-                    <Button
-                        android:id="@+id/btnChoose3"
-                        android:layout_width="100dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="45dp"
-                        android:background="@drawable/edit"
-                        android:text="Final Packing Image"
-                        android:textColor="#000" />
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btnChoose3"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="45dp"
+                            android:background="@drawable/edit"
+                            android:text="Final Packing Image"
+                            android:textColor="#000" />
+
+                        <Button
+                            android:id="@+id/send4"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="45dp"
+                            android:visibility="visible"
+                            android:background="@drawable/edit"
+                            android:text="Send"
+                            android:textColor="#000" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -199,38 +268,35 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginLeft="30dp"/>
 
-                    <Button
-                        android:id="@+id/btnChoose4"
-                        android:layout_width="100dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="45dp"
-                        android:background="@drawable/edit"
-                        android:text="Vehicle Photo"
-                        android:textColor="#000" />
+                        android:orientation="vertical">
 
+                        <Button
+                            android:id="@+id/btnChoose4"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="45dp"
+                            android:background="@drawable/edit"
+                            android:text="Vehicle Photo"
+                            android:textColor="#000" />
+
+                        <Button
+                            android:id="@+id/send5"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginBottom="45dp"
+                            android:visibility="visible"
+                            android:background="@drawable/edit"
+                            android:text="Send"
+                            android:textColor="#000" />
+
+                    </LinearLayout>
                 </LinearLayout>
-
-
-
-
-
-                <Button android:id="@+id/signup"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Submit"
-                    android:background="@drawable/edit"
-                    android:layout_marginTop="20dp"
-                    android:textColor="#000"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginLeft="100dp"
-                    android:layout_gravity="end"
-                    android:layout_marginBottom="30dp"
-                    />
-
-
-
 
 
 
