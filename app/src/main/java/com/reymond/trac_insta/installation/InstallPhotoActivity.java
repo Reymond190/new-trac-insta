@@ -59,7 +59,7 @@ public class InstallPhotoActivity extends AppCompatActivity {
         send5=(Button) findViewById(R.id.send5);
 
 
-        Button camera = (Button) findViewById(R.id.btnChoose);
+        final Button camera = (Button) findViewById(R.id.btnChoose);
         camera.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -129,55 +129,78 @@ public class InstallPhotoActivity extends AppCompatActivity {
         send1.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                if(pic == null) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT,"Vehicle Photos");
-                //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
-                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic));
-                send1.setVisibility(v.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please attach the vehicle photo.", Toast.LENGTH_SHORT).show();
 
-                i.setType("image/png");
-                startActivity(Intent.createChooser(i,"Share you on the jobing"));
 
+                }else{
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
+                    //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic));
+                    send1.setVisibility(v.INVISIBLE);
+                    i.setType("image/png");
+                    startActivity(Intent.createChooser(i, "Share you on the jobing"));
+                }
             }
 
+
         });
+
+
+
 
         send2.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT,"Vehicle Photos");
-                //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
-                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic1));
-                send2.setVisibility(v.INVISIBLE);
+                if (pic1 == null) {
 
-                i.setType("image/png");
-                startActivity(Intent.createChooser(i,"Share you on the jobing"));
+                    Toast.makeText(getApplicationContext(), "Please attach the vehicle photo.", Toast.LENGTH_SHORT).show();
 
+
+                } else {
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
+                    //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic1));
+                    send2.setVisibility(v.INVISIBLE);
+
+                    i.setType("image/png");
+                    startActivity(Intent.createChooser(i, "Share you on the jobing"));
+
+                }
             }
 
         });
         send3.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                if (pic2 == null) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT,"Vehicle Photos");
-                //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
-                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic2));
-                send3.setVisibility(v.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please attach the vehicle photo.", Toast.LENGTH_SHORT).show();
 
-                i.setType("image/png");
-                startActivity(Intent.createChooser(i,"Share you on the jobing"));
 
+                } else {
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
+                    //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic2));
+                    send3.setVisibility(v.INVISIBLE);
+
+                    i.setType("image/png");
+                    startActivity(Intent.createChooser(i, "Share you on the jobing"));
+
+                }
             }
 
         });
@@ -185,18 +208,25 @@ public class InstallPhotoActivity extends AppCompatActivity {
         send4.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                if (pic3 == null) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT,"Vehicle Photos");
-                //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
-                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic3));
-                send4.setVisibility(v.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please attach the vehicle photo.", Toast.LENGTH_SHORT).show();
 
-                i.setType("image/png");
-                startActivity(Intent.createChooser(i,"Share you on the jobing"));
 
+                } else {
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
+                    //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic3));
+                    send4.setVisibility(v.INVISIBLE);
+
+                    i.setType("image/png");
+                    startActivity(Intent.createChooser(i, "Share you on the jobing"));
+
+                }
             }
 
         });
@@ -204,17 +234,24 @@ public class InstallPhotoActivity extends AppCompatActivity {
         send5.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                if (pic4 == null) {
 
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT,"Vehicle Photos");
-                //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
-                i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic4));
-                send5.setVisibility(v.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please attach the vehicle photo.", Toast.LENGTH_SHORT).show();
 
-                i.setType("image/png");
-                startActivity(Intent.createChooser(i,"Share you on the jobing"));
+
+                } else {
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.putExtra(Intent.EXTRA_EMAIL, new String[]{"abhiraj@tracalogic.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Vehicle Photos");
+                    //Log.d("URI@!@#!#!@##!", Uri.fromFile(pic).toString() + "   " + pic.exists());
+                    i.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(pic4));
+                    send5.setVisibility(v.INVISIBLE);
+
+                    i.setType("image/png");
+                    startActivity(Intent.createChooser(i, "Share you on the jobing"));
+                }
             }
         });
     }
