@@ -67,10 +67,7 @@ public class TabActivity extends AppCompatActivity {
         // set an icon for the second tab
         tabLayout.addTab(secondTab); // add  the tab  in the TabLayout
 // Create a new Tab named "Third"
-        TabLayout.Tab thirdTab = tabLayout.newTab();
-        thirdTab.setText("Re-Install"); // set the Text for the first Tab
-        // set an icon for the first tab
-        tabLayout.addTab(thirdTab); // add  the tab at in the TabLayout
+
 
         TabLayout.Tab fourthTab = tabLayout.newTab();
         fourthTab.setText("Photos"); // set the Text for the first Tab

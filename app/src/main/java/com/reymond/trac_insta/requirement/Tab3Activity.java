@@ -49,16 +49,11 @@ public class Tab3Activity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.simpleTabLayout);
 // Create a new Tab named "First"
         TabLayout.Tab firstTab = tabLayout.newTab();
-        firstTab.setText("Devices");
+        firstTab.setText("Devices/Services");
         // set the Text for the first Tab
         // set an icon for the
 // first tab
-        tabLayout.addTab(firstTab); // add  the tab at in the TabLayout
-// Create a new Tab named "Second"
-        TabLayout.Tab secondTab = tabLayout.newTab();
-        secondTab.setText("Services");// set the Text for the second Tab
-        // set an icon for the second tab
-        tabLayout.addTab(secondTab); // add  the tab  in the TabLayout
+
 // Create a new Tab named "Third"
         // add  the tab at in the TabLayout
 
